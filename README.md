@@ -1,113 +1,72 @@
-# Customer Churn Analysis & Prediction
+## 🧹 Data Preprocessing
 
-An end-to-end machine learning project that analyzes customer behavior and predicts customers who are likely to churn.
+The following preprocessing steps were performed:
 
-## 📌 Project Overview
+- Removed the `customerID` identifier column
+- Converted the target variable `Churn` into an encoded target
+- Separated features (`X`) and target (`y`)
+- Split the dataset into training and testing sets using an 80/20 split
+- Used stratified sampling to maintain the churn class distribution
+- Applied `StandardScaler` to numerical features
+- Applied `OneHotEncoder` to categorical features
 
-Customer churn is an important business problem because losing existing customers can negatively affect revenue and business growth.
+The dataset contained 19 input features before preprocessing.
 
-This project uses the **Telco Customer Churn dataset** to analyze customer behavior, identify patterns associated with churn, preprocess the data, train multiple machine learning models, and select the best-performing model.
+After one-hot encoding the categorical variables, the feature space increased to 45 machine-learning features.
 
-The final model can also be used to predict churn for a new customer.
+## 🤖 Machine Learning Models
 
-## 🎯 Problem Statement
+Three classification models were trained and evaluated:
 
-The objective of this project is to predict whether a customer is likely to churn based on information such as:
+1. Logistic Regression
+2. Decision Tree
+3. Random Forest
 
-- Customer demographics
-- Tenure
-- Internet and phone services
-- Contract type
-- Payment method
-- Monthly charges
-- Total charges
-- Other customer service information
+## 📈 Model Evaluation
 
-The prediction can help businesses identify customers who may be at risk of leaving and support customer retention strategies.
+The models were evaluated using the following metrics:
 
-## 📊 Dataset
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC
 
-The project uses the **Telco Customer Churn dataset**.
+### Model Comparison
 
-The original dataset contains **7,043 customer records and 21 columns**.
+| Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
+|---|---:|---:|---:|---:|---:|
+| **Logistic Regression** | **80.38%** | **64.85%** | 57.22% | 60.80% | **83.59%** |
+| Decision Tree | 78.96% | 60.21% | **61.50%** | **60.85%** | 82.96% |
+| Random Forest | 73.92% | 50.62% | **76.20%** | 60.83% | 82.98% |
 
-After data cleaning, the dataset contains **7,032 records**.
+## 🏆 Final Model
 
-### Main Data Categories
+**Logistic Regression** was selected as the final model based on its overall performance.
 
-- Customer demographics
-- Account information
-- Phone services
-- Internet services
-- Contract information
-- Payment methods
-- Monthly charges
-- Total charges
-- Churn status
+### Final Model Performance
 
-## 🔍 Exploratory Data Analysis
+- **Accuracy:** 80.38%
+- **Precision:** 64.85%
+- **Recall:** 57.22%
+- **F1-score:** 60.80%
+- **ROC-AUC:** 83.59%
 
-The project includes exploratory analysis to understand:
+Logistic Regression achieved the highest accuracy, precision, and ROC-AUC among the three evaluated models.
 
-- Customer churn distribution
-- Customer tenure
-- Monthly charges
-- Total charges
-- Contract types
-- Internet services
-- Payment methods
-- Customer service usage
-- Relationships between customer characteristics and churn
+Random Forest achieved the highest recall, which can be useful when the primary objective is to identify as many potential churners as possible.
 
-## 🛠️ Technologies Used
+## 🔍 Feature Importance
 
-### Programming Language
+Logistic Regression coefficients were analyzed to identify the features that had the strongest influence on the model's predictions.
 
-- Python
+Both positive and negative coefficients were considered to understand the direction and strength of the relationship between features and predicted churn.
 
-### Data Analysis & Visualization
+## 💾 Saved Model
 
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-
-### Machine Learning
-
-- Scikit-learn
-
-### Development Tools
-
-- VS Code
-- Jupyter Notebook
-- Git
-- GitHub
-
-## ⚙️ Machine Learning Workflow
+The final Logistic Regression model and preprocessing pipeline were saved using Joblib.
 
 ```text
-Dataset
-   ↓
-Data Loading
-   ↓
-Data Cleaning
-   ↓
-Exploratory Data Analysis
-   ↓
-Feature Preparation
-   ↓
-Train/Test Split
-   ↓
-Feature Scaling & One-Hot Encoding
-   ↓
-Model Training
-   ↓
-Model Evaluation
-   ↓
-Model Comparison
-   ↓
-Best Model Selection
-   ↓
-Model Saving
-   ↓
-New Customer Prediction
+models/
+├── logistic_regression_model.pkl
+└── preprocessor.pkl
