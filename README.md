@@ -1,95 +1,113 @@
 # Customer Churn Analysis & Prediction
 
-An end-to-end machine learning project that analyzes customer behavior,
-identifies factors associated with customer churn, and builds machine
-learning models to predict customers who are likely to churn.
+An end-to-end machine learning project that analyzes customer behavior and predicts customers who are likely to churn.
 
 ## 📌 Project Overview
 
-Customer churn is an important business problem because losing existing
-customers can directly affect revenue and business growth.
+Customer churn is an important business problem because losing existing customers can negatively affect revenue and business growth.
 
-This project uses the Telco Customer Churn dataset to:
+This project uses the **Telco Customer Churn dataset** to analyze customer behavior, identify patterns associated with churn, preprocess the data, train multiple machine learning models, and select the best-performing model.
 
-- Explore customer demographics and service-related patterns
-- Clean and preprocess customer data
-- Perform exploratory data analysis (EDA)
-- Train machine learning models
-- Handle class imbalance
-- Perform hyperparameter tuning using GridSearchCV
-- Evaluate models using multiple classification metrics
-- Select and document the best-performing approach
+The final model can also be used to predict churn for a new customer.
 
 ## 🎯 Problem Statement
 
-The objective is to predict whether a customer is likely to churn based
-on customer information such as demographic characteristics, services,
-contract details, payment methods, and account information.
+The objective of this project is to predict whether a customer is likely to churn based on information such as:
 
-This can help businesses identify customers who may be at higher risk
-of leaving and support targeted retention strategies.
+- Customer demographics
+- Tenure
+- Internet and phone services
+- Contract type
+- Payment method
+- Monthly charges
+- Total charges
+- Other customer service information
+
+The prediction can help businesses identify customers who may be at risk of leaving and support customer retention strategies.
 
 ## 📊 Dataset
 
-The project uses the Telco Customer Churn dataset.
+The project uses the **Telco Customer Churn dataset**.
 
-The dataset contains customer information related to:
+The original dataset contains **7,043 customer records and 21 columns**.
+
+After data cleaning, the dataset contains **7,032 records**.
+
+### Main Data Categories
 
 - Customer demographics
 - Account information
-- Internet and phone services
-- Contract details
+- Phone services
+- Internet services
+- Contract information
 - Payment methods
-- Monthly and total charges
-- Customer churn status
+- Monthly charges
+- Total charges
+- Churn status
 
-Raw and processed datasets are kept outside the Git repository where
-appropriate.
+## 🔍 Exploratory Data Analysis
+
+The project includes exploratory analysis to understand:
+
+- Customer churn distribution
+- Customer tenure
+- Monthly charges
+- Total charges
+- Contract types
+- Internet services
+- Payment methods
+- Customer service usage
+- Relationships between customer characteristics and churn
 
 ## 🛠️ Technologies Used
 
-### Programming
+### Programming Language
+
 - Python
 
-### Data Analysis
+### Data Analysis & Visualization
+
 - Pandas
 - NumPy
 - Matplotlib
 - Seaborn
 
 ### Machine Learning
+
 - Scikit-learn
-- SMOTE
-- GridSearchCV
 
 ### Development Tools
-- Jupyter Notebook
+
 - VS Code
+- Jupyter Notebook
 - Git
 - GitHub
 
-## 🔄 Project Workflow
+## ⚙️ Machine Learning Workflow
 
 ```text
 Dataset
    ↓
 Data Loading
    ↓
-Data Cleaning & Preprocessing
+Data Cleaning
    ↓
 Exploratory Data Analysis
    ↓
-Feature Engineering
+Feature Preparation
    ↓
 Train/Test Split
    ↓
-Baseline Model
+Feature Scaling & One-Hot Encoding
    ↓
-Hyperparameter Tuning
-   ↓
-Class Imbalance Handling
+Model Training
    ↓
 Model Evaluation
    ↓
+Model Comparison
+   ↓
 Best Model Selection
-
+   ↓
+Model Saving
+   ↓
+New Customer Prediction
